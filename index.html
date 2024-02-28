@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="gallery-wrap">
+      <span class="arrows left"> ⮜</span>
+      <div class="gallery">
+        <div class="set1">
+          <img
+            src="https://img.pokemondb.net/sprites/home/normal/2x/avif/blastoise.avif"
+            alt=""
+            srcset=""
+            onerror="this.onerror=null;this.src='./images/default.jpg';"
+            title="blastoise"
+          />
+          <img
+            src="https://img.pokemondb.net/sprites/home/normal/2x/avif/fearow.avif"
+            alt=""
+            srcset=""
+            onerror="this.onerror=null;this.src='./images/default.jpg';"
+            title="fearow"
+          />
+          <img
+            src="https://img.pokemondb.net/sprites/home/normal/2x/avif/sandslash.avif"
+            alt=""
+            srcset=""
+            onerror="this.onerror=null;this.src='./images/default.jpg';"
+            title="sandslash"
+          />
+        </div>
+        <div class="set2">
+          <img
+            src="https://img.pokemondb.net/sprites/home/normal/2x/avif/rapidash.avif"
+            alt=""
+            srcset=""
+            onerror="this.onerror=null;this.src='./images/default.jpg';"
+            title="rapidash"
+          />
+
+          <img
+            src="https://img.pokemondb.net/sprites/home/normal/2x/avif/kabutops.avif"
+            alt=""
+            srcset=""
+            title="kabutops"
+          />
+          <img
+            src="https://img.pokemondb.net/sprites/home/normal/2x/avif/pineco.avif"
+            alt=""
+            srcset=""
+            onerror="this.onerror=null;this.src='./images/default.jpg';"
+            title="/pineco"
+          />
+        </div>
+      </div>
+      <span class="arrows right"> ⮞</span>
+    </div>
+    <h1>Who's that Pokēmon?</h1>
+    <script>
+      let val = true,
+        i = 1;
+
+      function animate(i) {
+        setTimeout(() => {
+          if (i % 4 == 0) {
+            val = !val;
+          }
+
+          if (val) document.querySelector(".gallery").scrollLeft += 220;
+          else document.querySelector(".gallery").scrollLeft -= 220;
+          animate(i + 1);
+        }, 2000);
+      }
+      animate(i);
+      document.querySelector(".gallery").addEventListener("wheel", (e) => {
+        e.preventDefault();
+        document.querySelector(".gallery").scrollLeft += e.deltaY;
+      });
+      document.querySelector(".arrows.right").addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(".gallery").scrollLeft += 220;
+      });
+      document.querySelector(".arrows.left").addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(".gallery").scrollLeft -= 220;
+      });
+    </script>
+  </body>
+</html>
